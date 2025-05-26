@@ -1,50 +1,122 @@
-Zomato Restaurant Clustering & Sentiment Analysis
-This project applies unsupervised machine learning and NLP techniques on Zomato restaurant data to solve two core business problems:
+# 🍽️ Zomato Restaurant Clustering Project
 
-Clustering restaurants based on features like cuisine, pricing, and location to assist in market segmentation.
+This project analyzes restaurant data from Zomato and applies clustering algorithms to group restaurants based on cuisine type, cost, and average ratings. The goal is to enable better personalization, recommendation systems, and targeted marketing strategies for food platforms.
 
-Sentiment analysis on user reviews to understand customer satisfaction trends and aid business strategy.
+---
 
-## Problem Statement
-Zomato, a food delivery platform, needs insights into restaurant segmentation and customer sentiment to optimize its recommendations, marketing strategies, and partner onboarding. This project addresses both market clustering and user feedback analysis.
+## 📌 Objective
 
-## Technologies & Tools Used
-Languages: Python
+Segment restaurants into distinct clusters to identify patterns such as:
+- Premium vs budget eateries
+- Cuisine-based groupings
+- Rating-based service quality indicators
 
-Libraries: Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, NLTK, WordCloud
+---
 
-Techniques: K-Means Clustering, TF-IDF Vectorization, Sentiment Classification
+## 🧩 Dataset
 
-NLP: Text Preprocessing, Tokenization, Stopword Removal, Lemmatization
+- **Source**: Zomato restaurant data (public dataset)
+- **Key Columns**:
+  - `Name`
+  - `Cuisines`
+  - `Cost`
+  - `Rating`
+  - `Review`
 
-## Project Workflow
-Data Cleaning & EDA
+---
 
-Handled missing values, filtered outliers
+## 🧹 Data Preprocessing
 
-Visualized features like location distribution, price range, and ratings
+- Cleaned `Cuisines` text data
+- Handled missing values in `Cost` and `Rating`
+- Used `MultiLabelBinarizer` to handle multiple cuisines per restaurant
+- Filtered out rare cuisines (appearing less than 8 times)
 
-Clustering Analysis (K-Means)
+---
 
-Selected features: average cost, rating, cuisine type, location
+## 🔍 Feature Engineering
 
-Applied elbow method for optimal cluster selection
+- Calculated **average rating per restaurant** using reviews
+- Encoded multiple cuisines into binary format
+- Scaled features using `StandardScaler`
 
-Interpreted clusters to identify distinct market segments
+---
 
-Sentiment Analysis (NLP)
+## 🤖 Clustering Techniques
 
-Preprocessed review text
+### ✅ K-Means Clustering
+- Optimal clusters found using **Elbow Method** and **Silhouette Score**
+- Final number of clusters: **14**
 
-Applied TF-IDF vectorization
+### ✅ Hierarchical Clustering
+- Used **Dendrogram** to visualize linkage distances
+- Applied **Agglomerative Clustering** with `ward` linkage
+- Final number of clusters: **7**
 
-Trained classification model to predict sentiment (positive/negative)
+---
 
-Visualized frequent words using WordCloud
+## 📈 Visualizations
 
-## Key Outcomes
-Segmented restaurants into meaningful clusters for marketing and product optimization
+- **Heatmaps**: Cuisine vs cluster distribution
+- **Bar Plots**: Cost and rating averages by cluster
+- **Scatter Plots**: Cost vs Rating colored by cluster
+- **Dendrogram**: For hierarchical cluster structure
 
-Identified customer sentiment patterns to inform service improvements
+---
 
-Built a foundational model for Zomato to enhance user experience using data-driven insights
+## 💡 Key Insights
+
+- **Cluster 2**: High-cost Italian/Continental restaurants
+- **Cluster 4**: Affordable North Indian spots
+- **Cluster 6**: Asian cuisine with high ratings
+
+These insights can help in decision-making for:
+- Targeted ads
+- Restaurant recommendations
+- Location-based expansion
+
+---
+
+## 🧰 Tech Stack
+
+- Python (pandas, numpy, matplotlib, seaborn)
+- Scikit-learn (KMeans, AgglomerativeClustering, silhouette_score)
+- Jupyter Notebook
+
+---
+
+## 🛠️ Challenges & Solutions
+
+| Challenge | Solution |
+|----------|----------|
+| Sparse cuisine data | Filtered cuisines < 8 appearances |
+| Missing values | Imputed with mean |
+| Choosing number of clusters | Used Elbow + Silhouette + Dendrogram |
+| Interpreting results | Visualized clusters with plots |
+
+---
+
+## 🚀 Future Improvements
+
+- Add **location coordinates** for geo-based clustering
+- Apply **PCA or t-SNE** for 2D visualization of clusters
+- Extend to a **recommendation engine** using cluster similarity
+
+---
+
+## 📎 Project Status
+
+✅ Data Cleaning  
+✅ Feature Engineering  
+✅ Clustering (KMeans + Hierarchical)  
+✅ Visualization & Insights  
+🚧 Recommendation System (Next Phase)
+
+---
+
+## 📫 Contact
+
+For questions or collaborations, connect with me on [LinkedIn](linkedin.com/in/shankar-belavatagi-6602b023a)
+
+---
+
