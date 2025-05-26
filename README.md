@@ -46,7 +46,7 @@ Segment restaurants into distinct clusters to identify patterns such as:
 
 ### ✅ K-Means Clustering
 - Optimal clusters found using **Elbow Method** and **Silhouette Score**
-- Final number of clusters: **14**
+- Final number of clusters: **07**
 
 ### ✅ Hierarchical Clustering
 - Used **Dendrogram** to visualize linkage distances
